@@ -13,19 +13,29 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import adcstand.composeapp.generated.resources.Res
 import adcstand.composeapp.generated.resources.compose_multiplatform
+import interfaces.IAppInitialData
 
 @Composable
 @Preview
-fun App() {
+fun App(appInitialData: IAppInitialData) {
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = { showContent = !showContent }) {
+            Button(onClick = {
+                showContent = !showContent
+
+            }) {
                 Text("Click me!")
             }
             AnimatedVisibility(showContent) {
+                val ports = appInitialData.getPorts()
+
                 val greeting = remember { Greeting().greet() }
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    for (port in ports) {
+                        Text("COM: $port")
+                        println(port)
+                    }
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
                     Text("Compose: $greeting")
                 }
