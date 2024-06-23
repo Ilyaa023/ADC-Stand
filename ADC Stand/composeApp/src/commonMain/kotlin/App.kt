@@ -1,45 +1,70 @@
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import org.jetbrains.compose.resources.painterResource
+import interfaces.MenuItem
+import interfaces.PlatformParams
+import interfaces.ScreenType
+import interfaces.drawHorizontalMenu
+import interfaces.drawVerticalMenu
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
-import adcstand.composeapp.generated.resources.Res
-import adcstand.composeapp.generated.resources.compose_multiplatform
-import interfaces.IAppInitialData
+import ui.AppTheme
+import ui.pages.ADCPage
+import ui.pages.ConnectionPage
+import ui.pages.KnowledgesPage
+import ui.pages.SettingsPage
+import ui.pages.StartPage
 
 @Composable
 @Preview
-fun App(appInitialData: IAppInitialData) {
-    MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = {
-                showContent = !showContent
-
-            }) {
-                Text("Click me!")
+fun App() {
+    var menuItem by remember { mutableStateOf(MenuItem.START_PAGE) }
+    AppTheme() {
+        if (PlatformParams.screenType.value == ScreenType.VERTICAL)
+            Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+                drawHorizontalMenu{ menuItem = it }
+                MenuContent(menuItem)
             }
-            AnimatedVisibility(showContent) {
-                val ports = appInitialData.getPorts()
-
-                val greeting = remember { Greeting().greet() }
-                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                    for (port in ports) {
-                        Text("COM: $port")
-                        println(port)
-                    }
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
+        else
+            Row(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+                drawVerticalMenu{ menuItem = it }
+                MenuContent(menuItem)
             }
-        }
+
+    }
+//            Button(onClick = {
+//                showContent = !showContent
+//            }) {
+//                Text(stringResource(Res.string))
+//            }
+//            AnimatedVisibility(showContent) {
+////                ports = appInitialData.getPorts()
+//
+//                val greeting = remember { Greeting().greet() }
+//                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+//
+//                    Image(painterResource(Res.drawable.compose_multiplatform), null)
+//                    Text("Compose: $greeting")
+//                }
+//            }
+//        }
+//    }
+}
+
+@Composable
+fun MenuContent(menuItem: MenuItem){
+    when (menuItem) {
+        MenuItem.START_PAGE -> StartPage()
+        MenuItem.CONNECTION_PAGE -> ConnectionPage()
+        MenuItem.SETTINGS_PAGE -> SettingsPage()
+        MenuItem.ADC_PAGE -> ADCPage()
+        MenuItem.KNOWLEDGE_PAGE -> KnowledgesPage()
     }
 }

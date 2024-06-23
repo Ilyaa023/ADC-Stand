@@ -19,16 +19,16 @@ kotlin {
     
     jvm("desktop")
     
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "ComposeApp"
-            isStatic = true
-        }
-    }
+//    listOf(
+//        iosX64(),
+//        iosArm64(),
+//        iosSimulatorArm64()
+//    ).forEach { iosTarget ->
+//        iosTarget.binaries.framework {
+//            baseName = "ComposeApp"
+//            isStatic = true
+//        }
+//    }
     
     sourceSets {
         val desktopMain by getting
@@ -44,9 +44,12 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(compose.material3)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+            implementation(compose.components.resources)
+            implementation(compose.material3)
             implementation("io.github.java-native:jssc:2.9.6")
             implementation("org.slf4j:slf4j-simple:1.6.1")
         }
@@ -88,6 +91,10 @@ android {
     dependencies {
         debugImplementation(compose.uiTooling)
     }
+}
+dependencies {
+//    implementation(libs.androidx.material3.desktop)
+    implementation(libs.androidx.material3.android)
 }
 
 compose.desktop {
