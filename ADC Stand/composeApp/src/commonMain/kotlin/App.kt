@@ -1,70 +1,71 @@
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
+
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import interfaces.MenuItem
+import androidx.compose.ui.text.style.TextAlign
 import interfaces.PlatformParams
 import interfaces.ScreenType
-import interfaces.drawHorizontalMenu
-import interfaces.drawVerticalMenu
+import interfaces.VerticalScaffold
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import ui.AppTheme
-import ui.pages.ADCPage
-import ui.pages.ConnectionPage
-import ui.pages.KnowledgesPage
-import ui.pages.SettingsPage
-import ui.pages.StartPage
+import ui.connectionMenu.MenuCustomAnimation
 
 @Composable
 @Preview
 fun App() {
-    var menuItem by remember { mutableStateOf(MenuItem.START_PAGE) }
+    var menuItem by remember { mutableStateOf(0) }
+    var menuVisibility = mutableStateOf(true)
     AppTheme() {
-        if (PlatformParams.screenType.value == ScreenType.VERTICAL)
-            Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
-                drawHorizontalMenu{ menuItem = it }
-                MenuContent(menuItem)
+        if (PlatformParams.screenType.value == ScreenType.HORIZONTAL)
+            Scaffold(
+                topBar = { TopAppBarImpl(menuVisibility) }
+            ) {
+                Row {
+                    MenuCustomAnimation()
+                    FrontLayerContent()
+                }
             }
         else
-            Row(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
-                drawVerticalMenu{ menuItem = it }
-                MenuContent(menuItem)
-            }
-
+            VerticalScaffold(menuVisibility)
     }
-//            Button(onClick = {
-//                showContent = !showContent
-//            }) {
-//                Text(stringResource(Res.string))
-//            }
-//            AnimatedVisibility(showContent) {
-////                ports = appInitialData.getPorts()
-//
-//                val greeting = remember { Greeting().greet() }
-//                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-//
-//                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-//                    Text("Compose: $greeting")
-//                }
-//            }
-//        }
-//    }
 }
 
 @Composable
-fun MenuContent(menuItem: MenuItem){
-    when (menuItem) {
-        MenuItem.START_PAGE -> StartPage()
-        MenuItem.CONNECTION_PAGE -> ConnectionPage()
-        MenuItem.SETTINGS_PAGE -> SettingsPage()
-        MenuItem.ADC_PAGE -> ADCPage()
-        MenuItem.KNOWLEDGE_PAGE -> KnowledgesPage()
+fun TopAppBarImpl(menuVisibility: MutableState<Boolean>) {
+    TopAppBar(
+        backgroundColor = MaterialTheme.colorScheme.primaryContainer,
+        contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+    ) {
+        IconButton(onClick = { menuVisibility.value = !menuVisibility.value }) {
+            Icon(Icons.Default.Menu, null)
+        }
+        Text(
+            text = "Stand control",
+            modifier = Modifier.weight(1f),
+            textAlign = TextAlign.Center,
+            color = MaterialTheme.colorScheme.onPrimaryContainer
+        )
+        IconButton(onClick = {}) {
+            Icon(Icons.Default.Settings, null)
+        }
     }
+}
+
+@Composable
+fun FrontLayerContent() {
+
 }
