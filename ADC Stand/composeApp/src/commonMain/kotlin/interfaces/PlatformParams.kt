@@ -8,6 +8,6 @@ enum class ScreenType {
 
 object PlatformParams {
     var screenType = mutableStateOf(ScreenType.VERTICAL)
-
+    var visible = mutableStateOf(false)
 }
 

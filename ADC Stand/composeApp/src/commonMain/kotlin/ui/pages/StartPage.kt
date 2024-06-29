@@ -9,19 +9,22 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
+import interfaces.PlatformParams.visible
+import kotlin.concurrent.thread
 
 @Composable
 fun StartPage(){
-    var visible by remember { mutableStateOf(false) }
+
+    thread {
+        Thread.sleep(1000)
+        visible.value = true
+    }
+
     AnimatedVisibility(
-        visible = visible,
+        visible = visible.value,
         enter = fadeIn(),
         exit = fadeOut()
     ) {
