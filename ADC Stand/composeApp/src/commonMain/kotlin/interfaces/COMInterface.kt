@@ -33,8 +33,32 @@ import interfaces.connection.IConnectionDataflow
 //    }
 //}
 
-expect fun getCOMConnectionInstance(): IConnectionDataflow?
+expect fun getAllInstances(out: (List<IConnectionDataflow>) -> Unit)
+//expect fun getBTConnectionInstance(): IConnectionDataflow?
+//expect fun getInternetConnectionInstance(): IConnectionDataflow?
+//expect fun getCOMConnectionInstance(): IConnectionDataflow?
 
-object COMInterface {
-    val instances = mutableMapOf<String, IConnectionDataflow>()
-}
+//object COMInterface: IConnectListener {
+//    val instances = mutableMapOf<String, IConnectionDataflow>()
+//    fun ConnectCOM(name: String, listener: IConnectListener){
+//        if (!instances.keys.contains(name))
+//            getCOMConnectionInstance()?.let {
+//                instances[name] = it
+//            }
+//        if (instances.keys.contains(name) && instances[name] != null){
+//            instances[name]!!.Connect(name, listener)
+//        }
+//    }
+//
+//    fun DisconnectCOM(name: String){
+//        instances[name]?.Disconnect(name)
+//    }
+//
+//    fun SendData(name: String, data: String, stringOrByte: Boolean){
+//        instances[name]?.SendString(data, this)
+//    }
+//
+//    override fun callback(connectionName: String, outputMessage: String, success: Boolean) {
+//        instances[connectionName]
+//    }
+//}

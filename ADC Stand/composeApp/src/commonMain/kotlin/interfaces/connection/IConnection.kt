@@ -1,7 +1,9 @@
 package interfaces.connection
 
+import models.ConnectionType
+
 interface IConnectListener{
-    fun callback(outputMessage: String, success: Boolean)
+    fun callback(connectionName: String, outputMessage: String, success: Boolean)
 }
 
 interface IConnectionsListCallback{
@@ -9,8 +11,11 @@ interface IConnectionsListCallback{
 }
 
 interface IConnectionDataflow{
-    fun Connect(data: InputDataModel, out: IConnectListener)
-    fun Disconnect(data: InputDataModel)
-    fun SendData(data: InputDataModel, out: IConnectListener)
-    fun CheckStands(callback: (MutableList<String>) -> Unit)
+    var connectionName: String
+    val connectionType: ConnectionType
+    fun Connect(data: String = connectionName, out: IConnectListener)
+    fun Disconnect(data: String = connectionName)
+    fun SendString(data: String, out: IConnectListener)
+    fun SendByte(data: String, out: IConnectListener)
+    fun CheckStands(callback: (MutableList<IConnectionDataflow>) -> Unit)
 }

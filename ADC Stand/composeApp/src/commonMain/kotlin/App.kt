@@ -20,27 +20,33 @@ import androidx.compose.ui.text.style.TextAlign
 import interfaces.PlatformParams
 import interfaces.ScreenType
 import interfaces.VerticalScaffold
+import models.Stand
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import ui.AppTheme
 import ui.connectionMenu.MenuCustomAnimation
+import useCases.GetStands
 
 @Composable
 @Preview
 fun App() {
-    var menuItem by remember { mutableStateOf(0) }
     var menuVisibility = mutableStateOf(true)
+    var stands by remember { mutableStateOf<List<Stand>>(emptyList()) }
+    GetStands().execute {
+        stands = it
+        println(it)
+    }
     AppTheme() {
         if (PlatformParams.screenType.value == ScreenType.HORIZONTAL)
             Scaffold(
                 topBar = { TopAppBarImpl(menuVisibility) }
             ) {
                 Row {
-                    MenuCustomAnimation()
-                    FrontLayerContent()
+                    MenuCustomAnimation(menuVisibility, stands)
+                    FrontLayerContent(stands)
                 }
             }
         else
-            VerticalScaffold(menuVisibility)
+            VerticalScaffold(menuVisibility, stands)
     }
 }
 
@@ -66,6 +72,6 @@ fun TopAppBarImpl(menuVisibility: MutableState<Boolean>) {
 }
 
 @Composable
-fun FrontLayerContent() {
+fun FrontLayerContent(stands: List<Stand>) {
 
 }

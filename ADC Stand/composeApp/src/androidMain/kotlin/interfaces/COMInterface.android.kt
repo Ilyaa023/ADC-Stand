@@ -2,6 +2,5 @@ package interfaces
 
 import interfaces.connection.IConnectionDataflow
 
-actual fun getCOMConnectionInstance(): IConnectionDataflow? {
-    return null
+actual fun getAllInstances(out: (List<IConnectionDataflow>) -> Unit) {
 }

@@ -4,44 +4,6 @@ package interfaces
 import SerialPort.SerialPortCommunication
 import interfaces.connection.IConnectionDataflow
 
-//actual fun getAvailableCOMPorts(): List<String> = SerialPortList.getPortNames().toList()
-//actual fun checkCOMStand(
-//        list: List<String>, checked: (MutableMap<String, Boolean>) -> Unit
-//) {
-//    for (port in list){
-//        val map: MutableMap<String, Boolean> = mutableMapOf()
-//        thread {
-//            println(port)
-//            try {
-//                val serial = SerialPort(port)
-//                serial.openPort()
-//                serial.setParams(
-//                    SerialPort.BAUDRATE_115200,
-//                    SerialPort.DATABITS_8,
-//                    SerialPort.STOPBITS_1,
-//                    SerialPort.PARITY_NONE)
-//                serial.setFlowControlMode(SerialPort.FLOWCONTROL_RTSCTS_IN + SerialPort.FLOWCONTROL_RTSCTS_OUT)
-//                val localListener = LocalListener(serial) {
-//                    map[port] = it
-//                    println(port)
-//                    println("\t$map")
-//                    checked(map)
-//                }
-//                serial.addEventListener(localListener, SerialPort.MASK_RXCHAR)
-//                serial.writeString("stand")
-//                Thread.sleep(100)
-//                if (!map.keys.contains(port)) map[port] = false
-//                serial.closePort()
-//            } catch (e: Exception){
-//                println(e)
-////                map[port] = false
-////                println("\t$map")
-////                checked(map)
-//            }
-//        }
-//    }
-//}
-
 //actual fun getConnectionImpl(
 //        str: String, listener: IConnectListener, callback: (IConnectionDataflow) -> Unit
 //) {
@@ -81,6 +43,7 @@ import interfaces.connection.IConnectionDataflow
 //        }
 //    }
 //}
-actual fun getCOMConnectionInstance(): IConnectionDataflow? {
-    return SerialPortCommunication()
+
+actual fun getAllInstances(out: (List<IConnectionDataflow>) -> Unit) {
+    SerialPortCommunication().CheckStands(out)
 }
