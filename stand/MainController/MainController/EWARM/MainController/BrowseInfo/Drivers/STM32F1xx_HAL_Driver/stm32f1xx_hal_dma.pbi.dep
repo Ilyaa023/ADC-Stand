@@ -1,34 +1,34 @@
-E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\MainController\BrowseInfo\Drivers\STM32F1xx_HAL_Driver\stm32f1xx_hal_dma.pbi: \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Core\Inc\stm32f1xx_hal_conf.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Include\core_cm3.h \
+E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\MainController\BrowseInfo\Drivers\STM32F1xx_HAL_Driver\stm32f1xx_hal_dma.pbi: \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dma.c \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Core\Inc\stm32f1xx_hal_conf.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Include\core_cm3.h \
   E:\apps\arm\inc\c\stdint.h E:\apps\arm\inc\c\ycheck.h \
   E:\apps\arm\inc\c\yvals.h E:\apps\arm\inc\c\DLib_Defaults.h \
   E:\apps\arm\inc\c\DLib_Config_Full.h E:\apps\arm\inc\c\DLib_Product.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Include\cmsis_version.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Include\cmsis_compiler.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Include\cmsis_iccarm.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Include\cmsis_version.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Include\cmsis_compiler.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Include\cmsis_iccarm.h \
   E:\apps\arm\inc\c\aarch32\iccarm_builtin.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \
   E:\apps\arm\inc\c\stddef.h E:\apps\arm\inc\c\ysizet.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h \
-  E:\Sources\GitHub\ projects\self-routing-ADC\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h \
+  E:\Sources\GitHub\ projects\ADC-Stand\stand\MainController\MainController\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h

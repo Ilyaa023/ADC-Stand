@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"E:\apps\common\bin\cspybat" -f "E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\settings\MainController.MainController.general.xcl" --backend -f "E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\settings\MainController.MainController.driver.xcl" 
+"E:\apps\common\bin\cspybat" -f "E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\settings\MainController.MainController.general.xcl" --backend -f "E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\settings\MainController.MainController.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"E:\apps\common\bin\cspybat" -f "E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\settings\MainController.MainController.general.xcl" "--debug_file=%~1" --backend -f "E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\settings\MainController.MainController.driver.xcl" 
+"E:\apps\common\bin\cspybat" -f "E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\settings\MainController.MainController.general.xcl" "--debug_file=%~1" --backend -f "E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\settings\MainController.MainController.driver.xcl" 
 
 @echo off 
 :end

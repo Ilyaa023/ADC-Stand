@@ -1,39 +1,39 @@
-"E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\USB_DEVICE\Target\usbd_conf.c"
+"E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\USB_DEVICE\Target\usbd_conf.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\MainController\BrowseInfo\Application\User\USB_DEVICE\Target\usbd_conf.pbi.dep
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\MainController\BrowseInfo\Application\User\USB_DEVICE\Target\usbd_conf.pbi.dep
 -o
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\MainController\BrowseInfo\Application\User\USB_DEVICE\Target\usbd_conf.pbi
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\MainController\BrowseInfo\Application\User\USB_DEVICE\Target\usbd_conf.pbi
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\USB_DEVICE\Target
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\USB_DEVICE\Target
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Core/Inc\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Core/Inc\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../USB_DEVICE/App\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../USB_DEVICE/App\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../USB_DEVICE/Target\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../USB_DEVICE/Target\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Drivers/STM32F1xx_HAL_Driver/Inc\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Drivers/STM32F1xx_HAL_Driver/Inc\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/include\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/include\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Middlewares/Third_Party/FreeRTOS/Source/portable/IAR/ARM_CM3\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Middlewares/ST/STM32_USB_Device_Library/Core/Inc\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Middlewares/ST/STM32_USB_Device_Library/Core/Inc\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Drivers/CMSIS/Device/ST/STM32F1xx/Include\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Drivers/CMSIS/Device/ST/STM32F1xx/Include\
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM/../Drivers/CMSIS/Include\
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM/../Drivers/CMSIS/Include\
 -I
 E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Core\Inc\tasks\
 -I
@@ -47,29 +47,29 @@ E:\apps\arm\inc
 -I
 E:\apps\arm\inc\c
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Core\Inc
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Core\Inc
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\USB_DEVICE\App
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\USB_DEVICE\App
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\USB_DEVICE\Target
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\USB_DEVICE\Target
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Drivers\STM32F1xx_HAL_Driver\Inc
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Drivers\STM32F1xx_HAL_Driver\Inc
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Middlewares\Third_Party\FreeRTOS\Source\include
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Middlewares\Third_Party\FreeRTOS\Source\include
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM3
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM3
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Middlewares\ST\STM32_USB_Device_Library\Core\Inc
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Middlewares\ST\STM32_USB_Device_Library\Core\Inc
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Drivers\CMSIS\Device\ST\STM32F1xx\Include
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 -I
-E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Drivers\CMSIS\Include
+E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\Drivers\CMSIS\Include
 -I
 E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\Core\Inc\tasks
 -I

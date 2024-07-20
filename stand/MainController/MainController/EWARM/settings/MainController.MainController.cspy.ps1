@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "E:\apps\common\bin\cspybat" -f "E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\settings\MainController.MainController.general.xcl" --backend -f "E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\settings\MainController.MainController.driver.xcl" 
+& "E:\apps\common\bin\cspybat" -f "E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\settings\MainController.MainController.general.xcl" --backend -f "E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\settings\MainController.MainController.driver.xcl" 
 }
 else
 {
-& "E:\apps\common\bin\cspybat" -f "E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\settings\MainController.MainController.general.xcl" --debug_file=$debugfile --backend -f "E:\Sources\GitHub projects\self-routing-ADC\stand\MainController\MainController\EWARM\settings\MainController.MainController.driver.xcl" 
+& "E:\apps\common\bin\cspybat" -f "E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\settings\MainController.MainController.general.xcl" --debug_file=$debugfile --backend -f "E:\Sources\GitHub projects\ADC-Stand\stand\MainController\MainController\EWARM\settings\MainController.MainController.driver.xcl" 
 }
