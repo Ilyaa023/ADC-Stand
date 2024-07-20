@@ -6,17 +6,16 @@ import androidx.compose.material.BackdropScaffold
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import models.Stand
+import models.ViewModelData
 import ui.connectionMenu.VerticalMenuContent
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-actual fun VerticalScaffold(menuVisibility: MutableState<Boolean>, stands: List<Stand>) {
+actual fun VerticalScaffold(vmData: ViewModelData) {
     BackdropScaffold(
-        appBar = { TopAppBarImpl(menuVisibility) },
-        backLayerContent = { VerticalMenuContent() },
-        frontLayerContent = { FrontLayerContent() },
+        appBar = { TopAppBarImpl(vmData) },
+        backLayerContent = { VerticalMenuContent(vmData = vmData) },
+        frontLayerContent = { FrontLayerContent(vmData) },
         backLayerBackgroundColor = MaterialTheme.colorScheme.secondaryContainer
     )
 }

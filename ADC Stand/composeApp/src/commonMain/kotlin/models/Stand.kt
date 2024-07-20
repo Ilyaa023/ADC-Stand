@@ -3,17 +3,20 @@ package models
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import interfaces.connection.IConnectListener
-import interfaces.connection.IConnectionDataflow
 
 enum class ConnectionType {COM, BT, NET}
+enum class StandType {ADC}
 
 data class Stand(
-        var selectedCT: MutableState<ConnectionType> = mutableStateOf(ConnectionType.COM),
-        var availableConnections: MutableState<List<IConnectionDataflow>> = mutableStateOf(emptyList()),
-        var connection: MutableState<IConnectionDataflow?> = mutableStateOf(null),
-        var isConnected: MutableState<Boolean> = mutableStateOf(false)
-) : IConnectListener{
-    override fun callback(connectionName: String, outputMessage: String, success: Boolean) {
-        TODO("Not yet implemented")
+        val connection: Connection,
+        var isConnected: MutableState<Boolean> = mutableStateOf(false),
+//        var selectedCT: MutableState<ConnectionType> = mutableStateOf(ConnectionType.COM),
+        var standType: StandType? = null
+) : IConnectListener {
+    init {
+        connection.listener = this
+    }
+    override fun callback(connectionName: String, outputMessage: String, connected: Boolean) {
+//        TODO("Not yet implemented")
     }
 }

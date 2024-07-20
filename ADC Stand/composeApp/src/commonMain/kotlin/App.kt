@@ -10,53 +10,43 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import interfaces.PlatformParams
 import interfaces.ScreenType
 import interfaces.VerticalScaffold
-import models.Stand
+import models.ViewModelData
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import ui.AppTheme
 import ui.connectionMenu.MenuCustomAnimation
-import useCases.GetStands
 
 @Composable
 @Preview
 fun App() {
-    var menuVisibility = mutableStateOf(true)
-    var stands by remember { mutableStateOf<List<Stand>>(emptyList()) }
-    GetStands().execute {
-        stands = it
-        println(it)
-    }
-    AppTheme() {
+    val vmData = ViewModelData()
+    AppTheme {
         if (PlatformParams.screenType.value == ScreenType.HORIZONTAL)
             Scaffold(
-                topBar = { TopAppBarImpl(menuVisibility) }
+                topBar = { TopAppBarImpl(vmData) }
             ) {
                 Row {
-                    MenuCustomAnimation(menuVisibility, stands)
-                    FrontLayerContent(stands)
+                    MenuCustomAnimation(vmData)
+                    FrontLayerContent(vmData)
                 }
             }
         else
-            VerticalScaffold(menuVisibility, stands)
+            VerticalScaffold(vmData)
     }
+//    vmData.refresh()
 }
 
 @Composable
-fun TopAppBarImpl(menuVisibility: MutableState<Boolean>) {
+fun TopAppBarImpl(vmData: ViewModelData) {
     TopAppBar(
         backgroundColor = MaterialTheme.colorScheme.primaryContainer,
         contentColor = MaterialTheme.colorScheme.onPrimaryContainer
     ) {
-        IconButton(onClick = { menuVisibility.value = !menuVisibility.value }) {
+        IconButton(onClick = { vmData.menuVisibility.value = !vmData.menuVisibility.value }) {
             Icon(Icons.Default.Menu, null)
         }
         Text(
@@ -72,6 +62,6 @@ fun TopAppBarImpl(menuVisibility: MutableState<Boolean>) {
 }
 
 @Composable
-fun FrontLayerContent(stands: List<Stand>) {
+fun FrontLayerContent(vmData: ViewModelData) {
 
 }

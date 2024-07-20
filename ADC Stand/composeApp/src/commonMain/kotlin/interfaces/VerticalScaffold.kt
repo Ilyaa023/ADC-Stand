@@ -1,8 +1,7 @@
 package interfaces
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import models.Stand
+import models.ViewModelData
 
 @Composable
-expect fun VerticalScaffold(menuVisibility: MutableState<Boolean>, stands: List<Stand>)
+expect fun VerticalScaffold(vmData: ViewModelData)

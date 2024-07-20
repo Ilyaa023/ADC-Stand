@@ -14,6 +14,9 @@ import kotlin.math.PI
 import kotlin.math.sin
 
 fun main() = application {
+//    ConnectionWork().Refresh { list, loaded ->
+//        println("list: $list \n\t$loaded")
+//    }
     val state = rememberWindowState()
     state.placement = WindowPlacement.Floating
     Window(

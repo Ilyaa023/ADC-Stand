@@ -1,46 +1,179 @@
 package ui.connectionMenu
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Done
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.FilledIconButton
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonColors
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
-import interfaces.connection.IConnectListener
-import interfaces.connection.IConnectionDataflow
-import models.ConnectionType
 import models.Stand
-import useCases.StandConnectionWork
+import useCases.ConnectionWork
+@Composable
+fun StandCard(
+        stand: Stand,
+        onStartClick: () -> Unit = { println("start click not implemented") },
+        onConnectClick: () -> Unit = { ConnectionWork().Connect(stand) },
+        onDisconnectClick: () -> Unit = { ConnectionWork().Disconnect(stand) }
+){
+    var isConnected by remember { stand.isConnected }
+//    var connectionType by remember { stand.selectedCT }
+
+    var backgroundColor = MaterialTheme.colorScheme.surfaceBright
+    var onBackgroundColor = MaterialTheme.colorScheme.onSurface
+    var activatedColor = MaterialTheme.colorScheme.tertiary
+    var onActivatedColor = MaterialTheme.colorScheme.onTertiary
+    if (!isConnected){
+        backgroundColor = MaterialTheme.colorScheme.outlineVariant
+        activatedColor = MaterialTheme.colorScheme.secondary
+        onActivatedColor = MaterialTheme.colorScheme.onSecondary
+    }
+
+    Card (colors = CardColors(contentColor = onBackgroundColor,
+                              containerColor = backgroundColor,
+                              disabledContainerColor = backgroundColor,
+                              disabledContentColor = onBackgroundColor),
+          modifier = Modifier.fillMaxWidth().padding(10.dp)) {
+        if (stand.standType == null)
+            Text("Imposter stand", color = onBackgroundColor)
+        else
+            Text(stand.standType!!.name, color = onBackgroundColor)
+        Text(stand.connection.connectionName, color = onBackgroundColor)
+        Row {
+            FilledIconButton(onClick = onConnectClick){
+                Image(Icons.Default.Done, null)
+            }
+            FilledIconButton(onClick = onDisconnectClick){
+                Image(Icons.Default.Close, null)
+            }
+            FilledIconButton(onClick = onStartClick){
+                Image(Icons.Default.PlayArrow, null)
+            }
+        }
+    }
+}
+//        Row(modifier = Modifier.fillMaxWidth().padding(10.dp)){
+//            Column(modifier = Modifier.weight(3f)) {
+//                Row {
+//                    ConnectionType.entries.forEach {
+//                        val isActive = connectionType == it
+//                        FilledIconButton(
+//                            enabled = !isConnected,
+//                            onClick = { connectionType = it },
+//                            modifier = Modifier.weight(1f),
+//                            shape = RectangleShape,
+//                            colors = IconButtonColors(
+//                                containerColor = if (isActive) activatedColor else backgroundColor,
+//                                contentColor = if (isActive) onActivatedColor else onBackgroundColor,
+//                                disabledContainerColor = if (isActive) activatedColor else backgroundColor,
+//                                disabledContentColor = if (isActive) onActivatedColor else onBackgroundColor)){
+//                            Text(it.name, color = if (isActive) onActivatedColor else onBackgroundColor)
+//                        }
+//                    }
+//                }
+//                LazyColumn(modifier = Modifier.height(80.dp)) {
+//                    availableConnections.forEach {
+//                        val isActive = selectedConnection == it
+//                        if (connectionType == it.connectionType)
+//                            item {
+//                                FilledIconButton(
+//                                    enabled = !isConnected,
+//                                    onClick = { selectedConnection = it },
+//                                    shape = RectangleShape,
+//                                    colors = IconButtonColors(
+//                                        containerColor = if (isActive) activatedColor else backgroundColor,
+//                                        contentColor = if (isActive) onActivatedColor else onBackgroundColor,
+//                                        disabledContainerColor = if (isActive) activatedColor else backgroundColor,
+//                                        disabledContentColor = if (isActive) onActivatedColor else onBackgroundColor)){
+//                                    Text(it.connectionName, color = if (isActive) onActivatedColor else onBackgroundColor)
+//                                }
+//                            }
+//                    }
+//                    if (availableConnections.isEmpty())
+//                        item {
+//                            Text(text = noCom, color = onBackgroundColor)
+//                        }
+//                }
+//                Row {
+//                    OutlinedButton(
+//                        enabled = isConnected,
+//                        onClick = onDisconnectClick,
+//                        shape = RectangleShape,
+//                        border = BorderStroke(1.dp, activatedColor),
+//                        modifier = Modifier.weight(1f),
+//                        colors = ButtonColors(
+//                            containerColor = backgroundColor,
+//                            contentColor = onBackgroundColor,
+//                            disabledContainerColor = backgroundColor,
+//                            disabledContentColor = onBackgroundColor)
+//                    ) {
+//                        Image(Icons.Default.Close, null)
+//                    }
+//                    FilledIconButton(
+//                        enabled = !isConnected,
+//                        onClick = onConnectClick,
+//                        shape = RectangleShape,
+//                        modifier = Modifier.weight(1f),
+//                        colors = IconButtonColors(
+//                            containerColor = activatedColor,
+//                            contentColor = onActivatedColor,
+//                            disabledContainerColor = activatedColor,
+//                            disabledContentColor = onActivatedColor)){
+//                        Image(Icons.Default.Done, null)
+//                    }
+//                }
+//            }
+//            Column(modifier = Modifier.width(60.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+//                IconButton(
+//                    onClick = {
+//                        onDisconnectClick()
+//                        onRemoveClick()
+//                    },
+//                    colors = IconButtonColors(
+//                        containerColor = backgroundColor, contentColor = onBackgroundColor,
+//                        disabledContainerColor = backgroundColor, disabledContentColor = onBackgroundColor)
+//                ){
+//                    Image(Icons.Default.Close, null)
+//                }
+//                IconButton(
+//                    enabled = !isConnected,
+//                    onClick = onRefreshClick,
+//                    colors = IconButtonColors(
+//                        containerColor = backgroundColor, contentColor = onBackgroundColor,
+//                        disabledContainerColor = backgroundColor, disabledContentColor = onBackgroundColor)
+//                ){
+//                    Image(Icons.Default.Refresh, null)
+//                }
+//                IconButton(
+//                    enabled = isConnected,
+//                    onClick = onStartClick,
+//                    colors = IconButtonColors(
+//                        containerColor = backgroundColor, contentColor = onBackgroundColor,
+//                        disabledContainerColor = backgroundColor, disabledContentColor = onBackgroundColor)
+//                ){
+//                    Image(Icons.Default.PlayArrow, null)
+//                }
+//            }
+//        }
+//    }
+
+
 
 //@Preview
 //@Composable
-//fun ConnectionCard(listOfConnections: MutableList<IConnectionDataflow>,
+//fun StandCard(listOfConnections: MutableList<IConnectionDataflow>,
 ////                   selectedCard: Boolean = false,
 //                   selectedCard: Boolean = false,
 //                   onRefreshClick: () -> Unit,
@@ -176,142 +309,3 @@ import useCases.StandConnectionWork
 //        }
 //    }
 //}
-
-@Composable
-fun StandCard(
-        stand: Stand = Stand(),
-        listener: IConnectListener = stand,
-        onRemoveClick: () -> Unit,
-        onRefreshClick: () -> Unit = { StandConnectionWork().Refresh { stand.availableConnections.value = it } },
-        onStartClick: () -> Unit,
-        onConnectClick: () -> Unit = {StandConnectionWork().Connect(stand, listener)},
-        onDisconnectClick: () -> Unit = { stand.connection.value?.Disconnect() }
-){
-    var isConnected by remember { stand.isConnected }
-    var connectionType by remember { stand.selectedCT }
-    var availableConnections by remember { stand.availableConnections }
-
-    var selectedConnection by remember { mutableStateOf<IConnectionDataflow?>(null) }
-
-    val noCom = "No available COM ports"
-
-    var backgroundColor = MaterialTheme.colorScheme.surfaceBright
-    var onBackgroundColor = MaterialTheme.colorScheme.onSurface
-    var activatedColor = MaterialTheme.colorScheme.tertiary
-    var onActivatedColor = MaterialTheme.colorScheme.onTertiary
-    if (!isConnected){
-        backgroundColor = MaterialTheme.colorScheme.outlineVariant
-        activatedColor = MaterialTheme.colorScheme.secondary
-        onActivatedColor = MaterialTheme.colorScheme.onSecondary
-    }
-
-    Card (colors = CardColors(contentColor = onBackgroundColor,
-                              containerColor = backgroundColor,
-                              disabledContainerColor = backgroundColor,
-                              disabledContentColor = onBackgroundColor),
-          modifier = Modifier.fillMaxWidth().padding(10.dp)) {
-        Row(modifier = Modifier.fillMaxWidth().padding(10.dp)){
-            Column(modifier = Modifier.weight(3f)) {
-                Row {
-                    ConnectionType.entries.forEach {
-                        val isActive = connectionType == it
-                        FilledIconButton(
-                            enabled = !isConnected,
-                            onClick = { connectionType = it },
-                            modifier = Modifier.weight(1f),
-                            shape = RectangleShape,
-                            colors = IconButtonColors(
-                                containerColor = if (isActive) activatedColor else backgroundColor,
-                                contentColor = if (isActive) onActivatedColor else onBackgroundColor,
-                                disabledContainerColor = if (isActive) activatedColor else backgroundColor,
-                                disabledContentColor = if (isActive) onActivatedColor else onBackgroundColor)){
-                            Text(it.name, color = if (isActive) onActivatedColor else onBackgroundColor)
-                        }
-                    }
-                }
-                LazyColumn(modifier = Modifier.height(80.dp)) {
-                    availableConnections.forEach {
-                        val isActive = selectedConnection == it
-                        if (connectionType == it.connectionType)
-                            item {
-                                FilledIconButton(
-                                    enabled = !isConnected,
-                                    onClick = { selectedConnection = it },
-                                    shape = RectangleShape,
-                                    colors = IconButtonColors(
-                                        containerColor = if (isActive) activatedColor else backgroundColor,
-                                        contentColor = if (isActive) onActivatedColor else onBackgroundColor,
-                                        disabledContainerColor = if (isActive) activatedColor else backgroundColor,
-                                        disabledContentColor = if (isActive) onActivatedColor else onBackgroundColor)){
-                                    Text(it.connectionName, color = if (isActive) onActivatedColor else onBackgroundColor)
-                                }
-                            }
-                    }
-                    if (availableConnections.isEmpty())
-                        item {
-                            Text(text = noCom, color = onBackgroundColor)
-                        }
-                }
-                Row {
-                    OutlinedButton(
-                        enabled = isConnected,
-                        onClick = onDisconnectClick,
-                        shape = RectangleShape,
-                        border = BorderStroke(1.dp, activatedColor),
-                        modifier = Modifier.weight(1f),
-                        colors = ButtonColors(
-                            containerColor = backgroundColor,
-                            contentColor = onBackgroundColor,
-                            disabledContainerColor = backgroundColor,
-                            disabledContentColor = onBackgroundColor)
-                    ) {
-                        Image(Icons.Default.Close, null)
-                    }
-                    FilledIconButton(
-                        enabled = !isConnected,
-                        onClick = onConnectClick,
-                        shape = RectangleShape,
-                        modifier = Modifier.weight(1f),
-                        colors = IconButtonColors(
-                            containerColor = activatedColor,
-                            contentColor = onActivatedColor,
-                            disabledContainerColor = activatedColor,
-                            disabledContentColor = onActivatedColor)){
-                        Image(Icons.Default.Done, null)
-                    }
-                }
-            }
-            Column(modifier = Modifier.width(60.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                IconButton(
-                    onClick = {
-                        onDisconnectClick()
-                        onRemoveClick()
-                    },
-                    colors = IconButtonColors(
-                        containerColor = backgroundColor, contentColor = onBackgroundColor,
-                        disabledContainerColor = backgroundColor, disabledContentColor = onBackgroundColor)
-                ){
-                    Image(Icons.Default.Close, null)
-                }
-                IconButton(
-                    enabled = !isConnected,
-                    onClick = onRefreshClick,
-                    colors = IconButtonColors(
-                        containerColor = backgroundColor, contentColor = onBackgroundColor,
-                        disabledContainerColor = backgroundColor, disabledContentColor = onBackgroundColor)
-                ){
-                    Image(Icons.Default.Refresh, null)
-                }
-                IconButton(
-                    enabled = isConnected,
-                    onClick = onStartClick,
-                    colors = IconButtonColors(
-                        containerColor = backgroundColor, contentColor = onBackgroundColor,
-                        disabledContainerColor = backgroundColor, disabledContentColor = onBackgroundColor)
-                ){
-                    Image(Icons.Default.PlayArrow, null)
-                }
-            }
-        }
-    }
-}

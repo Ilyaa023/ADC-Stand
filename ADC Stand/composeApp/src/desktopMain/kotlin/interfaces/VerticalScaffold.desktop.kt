@@ -5,18 +5,17 @@ import TopAppBarImpl
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import models.Stand
+import models.ViewModelData
 import ui.connectionMenu.MenuCustomAnimation
 
 @Composable
-actual fun VerticalScaffold(menuVisibility: MutableState<Boolean>, stands: List<Stand>) {
+actual fun VerticalScaffold(vmData: ViewModelData) {
     Scaffold(
-        topBar = { TopAppBarImpl(menuVisibility) }
+        topBar = { TopAppBarImpl(vmData) }
     ) {
         Row {
-            MenuCustomAnimation(menuVisibility, stands)
-            FrontLayerContent(stands)
+            MenuCustomAnimation(vmData)
+            FrontLayerContent(vmData)
         }
     }
 }
