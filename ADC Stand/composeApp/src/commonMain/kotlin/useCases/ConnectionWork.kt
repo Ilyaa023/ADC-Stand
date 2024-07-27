@@ -64,9 +64,14 @@ class ConnectionWork() {
                                 if (connected){
                                     if (outputMessage == connection.connectionTestString){
                                         println("\trealised as test string")
-                                        connection.SendString("stand")
+                                        connection.SendString("s")
                                     }
-                                    if  (outputMessage == "ADC" || outputMessage == "{ \"request\": \"Bad request\" }") {
+                                    if (outputMessage == "Bad request"){
+                                        println("\trealised as wrong string")
+                                        checkedNum++
+                                        callback(actualStands, checkedNum == connectionsToCheck.size)
+                                    }
+                                    if  (outputMessage == "ADC") {
                                         println("\trealised as ADC")
                                         actualStands.add(
                                             Stand(

@@ -10,19 +10,27 @@
 
 typedef __packed struct {
 	float32_t inputCurrent;
-	float32_t output10v;
-	float32_t output5av;
+	float32_t maxInputCurrent;
+	uint8_t overcurrrent;
+	float32_t measuredOutAnalog;
+	float32_t settedOutAnalog;
 } VoltageModule_t;
 
 typedef __packed struct {
 	uint8_t standId;
 	uint16_t USBUpdatePeriod;
+	uint8_t subscribed;
 } GeneralSettings_t;
+
+typedef __packed struct {
+	uint8_t nothing;
+} ADCModule_t;
 
 typedef __packed struct {
 	VoltageModule_t voltageModule;
 	Signal_t signal;
 	GeneralSettings_t generalSettings;
+	ADCModule_t ADCModule;
 } Settings_t;
 
 void InitSettings();
