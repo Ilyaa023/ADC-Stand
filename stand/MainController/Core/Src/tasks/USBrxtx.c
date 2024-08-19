@@ -18,7 +18,7 @@ const uint8_t DATA_TYPE[] = {'l'};						//live data
 const uint8_t REQUEST_TYPE[] = {'g','s','l'}; // get set listen
 
 uint8_t subscribed = 0;
-	uint8_t buffer[600];
+uint8_t buffer[600];
 
 extern void MX_USB_DEVICE_Init(void);
 extern Settings_t settings;
@@ -42,8 +42,8 @@ void USBTask(void * argument)
 	}
   for(;;)
   {
-    osDelay(1000);
-//		if (subscribed == 1)
+    osDelay(100);
+		if (subscribed == 1)
 			CDC_Transmit_FS(buffer, 600);
   }
 }
@@ -81,10 +81,10 @@ void USB_CDC_RxHandler(uint8_t* Buf, uint32_t Len)
 //void SendLiveData(){
 //
 //}
-
-void SendData(uint8_t startAddr, uint8_t endAddr){
-	CDC_Transmit_FS((uint8_t*) &settings + startAddr, endAddr - startAddr);
-}
+//
+//void SendData(uint8_t startAddr, uint8_t endAddr){
+//	CDC_Transmit_FS((uint8_t*) &settings + startAddr, endAddr - startAddr);
+//}
 
 void getLivedata(){
 	char buf[40];

@@ -93,7 +93,11 @@ int main(void)
   MX_TIM4_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
+	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
 
+	SignalInit();
+	RunSignal();
   /* USER CODE END 2 */
 
   /* Init scheduler */

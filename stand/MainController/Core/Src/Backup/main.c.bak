@@ -94,9 +94,12 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
+        SignalInit();
+        RunSignal();
   /* USER CODE END 2 */
 
-  /* Call init function for freertos objects (in freertos.c) */
+  /* Init scheduler */
+  osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
 
   /* Start scheduler */

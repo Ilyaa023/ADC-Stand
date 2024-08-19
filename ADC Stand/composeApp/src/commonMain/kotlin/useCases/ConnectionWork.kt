@@ -21,6 +21,9 @@ class ConnectionWork() {
         getAllInstances{
             println(it)
             val connectionsToCheck = mutableListOf<Connection>()
+
+            it.toMutableList().add(Connection("virtual device", null))                  /** ONLY FOR DEBUG */
+
             it.forEach { connection ->
                 var isStandContainsInIt = false
                 actualStands.forEach { stand ->
@@ -35,7 +38,6 @@ class ConnectionWork() {
             actualStands.forEach { stand ->
                 println("begin cycle $actualStands")
                 var isItContainsInStand = false
-//                connectionNames.add(stand.connection.connectionName)
                 it.forEach { connection ->
                     if (stand.connection.connectionName == connection.connectionName)
                         isItContainsInStand = true
@@ -47,6 +49,9 @@ class ConnectionWork() {
             standsToRemove.forEach { stand ->
                 actualStands.remove(stand)
             }
+
+            connectionsToCheck.add(Connection("virtual device", null))                  /** ONLY FOR DEBUG */
+
             println("connections to check: $connectionsToCheck")
             var checkedNum = 0
             thread {

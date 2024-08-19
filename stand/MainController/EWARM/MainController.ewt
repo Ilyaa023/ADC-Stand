@@ -1434,6 +1434,39 @@
             <group>
                 <name>Core</name>
                 <group>
+                    <name>headers</name>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\dma.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\FreeRTOSConfig.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\gpio.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\main.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\settings.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\signal.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\stm32f1xx_hal_conf.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\stm32f1xx_it.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\tim.h</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\USBrxtx.h</name>
+                    </file>
+                </group>
+                <group>
                     <name>tasks</name>
                     <file>
                         <name>$PROJ_DIR$\..\Core\Src\tasks\USBrxtx.c</name>
@@ -1558,7 +1591,7 @@
         <group>
             <name>FreeRTOS</name>
             <file>
-                <name>$PROJ_DIR$\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c</name>
+                <name>$PROJ_DIR$\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\Middlewares\Third_Party\FreeRTOS\Source\croutine.c</name>

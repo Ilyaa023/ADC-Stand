@@ -15,7 +15,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         setContent {
             val height = LocalConfiguration.current.screenHeightDp
             val width = LocalConfiguration.current.screenWidthDp

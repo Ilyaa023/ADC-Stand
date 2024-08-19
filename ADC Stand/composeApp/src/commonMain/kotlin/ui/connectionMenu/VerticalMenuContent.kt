@@ -75,8 +75,10 @@ fun VerticalMenuContent(modifier: Modifier = Modifier, vmData: ViewModelData ){
 //
 //                       })
     LazyColumn(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        println("\t\tdraw stands num ${vmData.stands.value} ")
         itemsIndexed(vmData.stands.value){ index, item ->
-            StandCard(stand = item)
+            println("\tdraw stand num $index as $item ")
+            StandCard(stand = item, onStartClick = { vmData.selectedStand.value = item })
 //            StandCard(stand = item,
 //                      onRemoveClick = {},
 //                      onStartClick = {})

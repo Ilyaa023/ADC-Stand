@@ -18,7 +18,7 @@ fun main() = application {
 //        println("list: $list \n\t$loaded")
 //    }
     val state = rememberWindowState()
-    state.placement = WindowPlacement.Floating
+    state.placement = WindowPlacement.Maximized
     Window(
         onCloseRequest = ::exitApplication,
         state = state,

@@ -19,16 +19,33 @@ data class Stand(
         connection.listener = this
     }
     override fun callback(connectionName: String, outputMessage: String, connected: Boolean) {
+        isConnected.value = connected
         if (connected && connectionName == connection.connectionName){
-            for (i in 0..99){
-                if (outputMessage[i * 6] == 'm' && outputMessage[(i+1) * 6].code == i){
-                    val bytes = arrayOf(outputMessage[(i+2) * 6].code, outputMessage[(i+3) * 6].code, outputMessage[(i+4) * 6].code, outputMessage[(i+5) * 6].code)
-                    val a = bytes[0]*256 + bytes[1]
-                    val b = bytes[2]*256 + bytes[3]
-                    buffer.add(arrayOf(a,b))
+            try {
+                if (outputMessage.length > 1) {
+                    if (outputMessage.length == 600) {
+                        for (i in 0..99) {
+//                            println("decoded ${outputMessage[i * 6]} ${outputMessage[i * 6 + 1].code} ${outputMessage[i * 6 + 2].code} ${outputMessage[i * 6 + 3].code} ${outputMessage[i * 6 + 4].code} ${outputMessage[i * 6 + 5].code}")
+                            if (outputMessage[i * 6] == 'm' && outputMessage[i * 6 + 1].code == i) {
+                                val bytes = arrayOf(
+                                    outputMessage[i * 6 + 2].code,
+                                    outputMessage[i * 6 + 3].code,
+                                    outputMessage[i * 6 + 4].code,
+                                    outputMessage[i * 6 + 5].code
+                                )
+                                val a = bytes[0] * 128 + bytes[1]
+                                val b = bytes[2] * 128 + bytes[3]
+//                                println("point num ${outputMessage[i * 6 + 1].code} decoded $a, $b")
+                                buffer.add(arrayOf(a, b))
+//                                println(buffer.size)
+                            }
+                        }
+                        update.value = true
+                    }
                 }
+            } catch (e: Exception){
+                println(e.message)
             }
-            update.value = true
         }
     }
 }
